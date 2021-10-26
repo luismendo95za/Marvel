@@ -9,6 +9,7 @@ import Foundation
 
 enum Constants {
     static var baseUrl: String { "https://gateway.marvel.com/" }
+    static var limitPage: Int = 20
 }
 
 enum Endpoints{

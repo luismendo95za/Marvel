@@ -10,10 +10,17 @@ import Alamofire
 
 final class DashboardService {
 
-
-    func getCharactersList(completion: @escaping([Result])-> Void, failure: @escaping(AFError)-> Void) {
+    /// Call Service for obtain list of comic characters
+    /// - Parameters:
+    ///   - limit: Limit the result set to the specified number of resources.
+    ///   - offset: Skip the specified number of resources in the result set.
+    /// - Returns: lists of comic characters
+    func getCharactersList(limit: Int? = 20, offset: Int? = 0,
+                           completion: @escaping([Result])-> Void, failure: @escaping(AFError)-> Void) {
         
-        let params = KeyParameter.params
+        var params = KeyParameter.params
+        params["limit"] = limit
+        params["offset"] = offset
         
         let request = AF.request(Endpoints.listCharacter, method: .get, parameters: params)
         
