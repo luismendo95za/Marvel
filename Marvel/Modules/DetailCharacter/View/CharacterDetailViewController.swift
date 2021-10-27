@@ -22,9 +22,10 @@ class CharacterDetailViewController: UIViewController {
     var listComicsCharacter: [AnyObject] = []
     var context: CharacterDetailViewController?
     
-    @IBOutlet weak var labelDescriptionInform: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var characterImageView: UIImageView!
+    @IBOutlet private weak var labelDescriptionInform: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     
     override func viewDidLoad() {
@@ -58,6 +59,8 @@ extension CharacterDetailViewController: CharacterDetailViewProtocol {
         self.labelDescriptionInform.text = "Descripción:" 
         self.descriptionLabel.text = character.descriptionField != "" ? character.descriptionField : "Sin descripción"
         listComicsCharacter = character.comics.items
+        let urlImage = URL(string: character.thumbnail.absolutePath ?? "")
+        characterImageView.kf.setImage(with: urlImage)
         self.collectionView.reloadData()
     }
 }

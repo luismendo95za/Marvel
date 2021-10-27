@@ -20,6 +20,10 @@
                                 <rect key="frame" x="0.0" y="139" width="414" height="723"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sn-rE-iqR" customClass="EmptyScreenView" customModule="Marvel" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="139" width="414" height="723"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                            </view>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="gBE-uZ-vVh">
                                 <rect key="frame" x="0.0" y="88" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -29,9 +33,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="IXH-Jf-j5w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AGq-bk-B5H"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1sn-rE-iqR" secondAttribute="trailing" id="L0F-ld-wIY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IXH-Jf-j5w" secondAttribute="bottom" id="LOP-t9-6XK"/>
                             <constraint firstItem="gBE-uZ-vVh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Nk7-D6-8du"/>
                             <constraint firstItem="IXH-Jf-j5w" firstAttribute="top" secondItem="gBE-uZ-vVh" secondAttribute="bottom" id="TKd-bj-VPU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1sn-rE-iqR" secondAttribute="bottom" id="XlS-FW-suv"/>
+                            <constraint firstItem="1sn-rE-iqR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="l2x-6c-NYz"/>
+                            <constraint firstItem="1sn-rE-iqR" firstAttribute="top" secondItem="gBE-uZ-vVh" secondAttribute="bottom" id="ldL-FX-beb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IXH-Jf-j5w" secondAttribute="trailing" id="lhD-Ad-TUn"/>
                             <constraint firstItem="gBE-uZ-vVh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uRW-nu-cYl"/>
                             <constraint firstAttribute="trailing" secondItem="gBE-uZ-vVh" secondAttribute="trailing" id="yIh-Hj-pyW"/>
@@ -39,6 +47,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="s1J-Uy-Nqk"/>
                     <connections>
+                        <outlet property="emptyView" destination="1sn-rE-iqR" id="i0d-xc-hSO"/>
                         <outlet property="searchBar" destination="gBE-uZ-vVh" id="scl-5Z-Ric"/>
                         <outlet property="tableView" destination="IXH-Jf-j5w" id="zzw-7i-NIC"/>
                     </connections>
@@ -69,6 +78,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -22,6 +22,7 @@ class DashboardViewController: UIViewController {
     // MARK: Outles
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var emptyView: UIView!
     
     // MARK: Variables
     var context: DashboardViewController?
@@ -82,6 +83,7 @@ class DashboardViewController: UIViewController {
 
 extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        emptyView.isHidden = filteredData.count == 0 ? false : true
         return filteredData.count
     }
     
@@ -134,7 +136,10 @@ extension DashboardViewController: UISearchBarDelegate {
         
         filteredData = searchText.isEmpty ? listCharacters : listCharacters.filter({$0.name?.range(of: searchText, options: .caseInsensitive) != nil})
         if searchText == "" { // clear text
-            filteredData = listCharacters
+            presenter.getListCharacter()
+        }
+        if filteredData.count == 0 {
+            presenter.getListCharacter(name: searchBar.text)
         }
         tableView.reloadData()
     }
