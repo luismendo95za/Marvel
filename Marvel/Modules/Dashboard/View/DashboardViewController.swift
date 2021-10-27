@@ -121,7 +121,9 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
                 self.page = self.page + 1
                 self.limit = self.limit + 10
                 self.offset = self.limit * self.page
-                self.presenter.getListCharacter(limit: self.limit, offset: self.offset, isPagination: isDataLoading)
+                let characterSearch = searchBar.text == "" ? nil : searchBar.text
+                self.presenter.getListCharacter(limit: self.limit, offset: self.offset,
+                                                name: characterSearch, isPagination: isDataLoading)
             }
         }
     }
@@ -138,9 +140,7 @@ extension DashboardViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        filteredData = searchBar.text!.isEmpty ? listCharacters : listCharacters.filter({$0.name?.range(of: searchBar.text ?? "", options: .caseInsensitive) != nil})
-        tableView.reloadData()
+        presenter.getListCharacter(name: searchBar.text)
     }
 }
 

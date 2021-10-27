@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol DashboardPresenterProtocol: class {
-    func getListCharacter(limit: Int?, offset: Int?, isPagination: Bool?)
+    func getListCharacter(limit: Int?, offset: Int?, name: String?, isPagination: Bool?)
 }
 
 class DashboardPresenter {
@@ -30,11 +30,11 @@ class DashboardPresenter {
 
 
 extension DashboardPresenter: DashboardPresenterProtocol{
-    func getListCharacter(limit: Int? = 20, offset: Int? = 0, isPagination: Bool? = false) {
+    func getListCharacter(limit: Int? = 20, offset: Int? = 0, name: String? = nil, isPagination: Bool? = false) {
         
         let loader = Loader()
         loader.showLoader(context: self.ui.context)
-        service?.getCharactersList(limit: limit, offset: offset, completion: { response in
+        service?.getCharactersList(limit: limit, offset: offset, name: name, completion: { response in
             if isPagination == true {
                 self.ui.filteredData.append(contentsOf: response)
                 self.ui.listCharacters.append(contentsOf: response)
@@ -51,5 +51,5 @@ extension DashboardPresenter: DashboardPresenterProtocol{
             self.ui.refreshControl.endRefreshing()
             ServerError.proccessError(error: error, context: self.ui.context)
         })
-    }    
+    }
 }

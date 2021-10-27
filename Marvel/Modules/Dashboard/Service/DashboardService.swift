@@ -15,12 +15,13 @@ final class DashboardService {
     ///   - limit: Limit the result set to the specified number of resources.
     ///   - offset: Skip the specified number of resources in the result set.
     /// - Returns: lists of comic characters
-    func getCharactersList(limit: Int? = 20, offset: Int? = 0,
+    func getCharactersList(limit: Int? = 20, offset: Int? = 0, name: String? = nil,
                            completion: @escaping([Result])-> Void, failure: @escaping(AFError)-> Void) {
         
         var params = KeyParameter.params
         params["limit"] = limit
         params["offset"] = offset
+        params["nameStartsWith"] = name
         
         let request = AF.request(Endpoints.listCharacter, method: .get, parameters: params)
         
