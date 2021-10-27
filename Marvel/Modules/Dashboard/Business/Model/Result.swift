@@ -17,7 +17,7 @@ final class Result: Glossy {
     public var resourceURI : String!
     public var series : Series!
     public var stories : Story!
-//    public var thumbnail : Thumbnail!
+    public var thumbnail : Thumbnail!
 //    public var urls : [Url]!
 
 	//MARK: Default Initializer 
@@ -32,7 +32,7 @@ final class Result: Glossy {
         resourceURI = ""
         series = Series()
         stories = Story()
-//        thumbnail = Thumbnail()
+        thumbnail = Thumbnail()
 //        urls = []
     }
 
@@ -84,11 +84,11 @@ final class Result: Glossy {
         }else{
             self.stories = Story()
         }
-//        if let thumbnail : Thumbnail = "thumbnail" <~~ json {
-//            self.thumbnail = thumbnail
-//        }else{
-//            self.thumbnail = Thumbnail()
-//        }
+        if let thumbnail : Thumbnail = "thumbnail" <~~ json {
+            self.thumbnail = thumbnail
+        }else{
+            self.thumbnail = Thumbnail()
+        }
 //        if let urls : [Url] = "urls" <~~ json {
 //            self.urls = urls
 //        }else{
@@ -110,7 +110,7 @@ final class Result: Glossy {
         "resourceURI" ~~> resourceURI,
         "series" ~~> series,
         "stories" ~~> stories,
-//        "thumbnail" ~~> thumbnail,
+        "thumbnail" ~~> thumbnail,
 //        "urls" ~~> urls,
 		])
 	}
