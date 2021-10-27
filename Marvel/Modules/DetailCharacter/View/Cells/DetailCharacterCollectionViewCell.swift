@@ -9,7 +9,6 @@ import UIKit
 
 class DetailCharacterCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet private weak var comicImageView: UIImageView!
     @IBOutlet private weak var labelName: UILabel!
     static var reuseId = "DetailCharacterCollectionViewCell"
         
