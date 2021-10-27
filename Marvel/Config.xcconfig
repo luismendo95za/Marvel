@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  Marvel
+//
+//  Created by luis a mendoza reyna on 27/10/21.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_KEY = "insert your api key here, without quotes"

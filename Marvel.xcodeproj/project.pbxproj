@@ -113,6 +113,7 @@
 		9648FFCBC3B19D4A2579FD87 /* Pods-MarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelTests.release.xcconfig"; path = "Target Support Files/Pods-MarvelTests/Pods-MarvelTests.release.xcconfig"; sourceTree = "<group>"; };
 		B228C29CF7294073896F4F59 /* Pods-Marvel-MarvelUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel-MarvelUITests.release.xcconfig"; path = "Target Support Files/Pods-Marvel-MarvelUITests/Pods-Marvel-MarvelUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B54CA62E2729415200C92F7C /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
+		B54CA6302729751D00C92F7C /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		E827952F631EAF58AD5A3608 /* Pods-MarvelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelTests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelTests/Pods-MarvelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F21905AD5DFDE172E8EDEF1C /* Pods-Marvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.release.xcconfig"; path = "Target Support Files/Pods-Marvel/Pods-Marvel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -265,6 +266,7 @@
 				12B669CD26623FD500632C40 /* Assets.xcassets */,
 				12B669CF26623FD500632C40 /* LaunchScreen.storyboard */,
 				12B669D226623FD500632C40 /* Info.plist */,
+				B54CA6302729751D00C92F7C /* Config.xcconfig */,
 			);
 			path = Marvel;
 			sourceTree = "<group>";
@@ -717,6 +719,7 @@
 /* Begin XCBuildConfiguration section */
 		12B669E926623FD600632C40 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B54CA6302729751D00C92F7C /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -778,6 +781,7 @@
 		};
 		12B669EA26623FD600632C40 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B54CA6302729751D00C92F7C /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

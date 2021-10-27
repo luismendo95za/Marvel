@@ -18,7 +18,7 @@ final class DashboardService {
     func getCharactersList(limit: Int? = 20, offset: Int? = 0, name: String? = nil,
                            completion: @escaping([Result])-> Void, failure: @escaping(AFError)-> Void) {
         
-        var params = KeyParameter.params
+        var params = KeyParameter.params        
         params["limit"] = limit
         params["offset"] = offset
         params["nameStartsWith"] = name
