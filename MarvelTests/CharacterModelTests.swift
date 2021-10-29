@@ -6,7 +6,6 @@
 //
 
 import XCTest
-import Gloss
 
 @testable import Marvel
 

@@ -17,9 +17,13 @@ final class DashboardRouter {
     }
 
     
-    func navigateDetail(character: Result) {
+    func navigateDetail(character: CharacterModel) {
         let detailVC = CharacterDetailViewController(nibName: "CharacterDetailViewController", bundle: nil)
-        detailVC.characterId = character.id
+        guard let characterId = character.id 
+        else {
+            return
+        }
+        detailVC.characterId = characterId
         self.ui.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

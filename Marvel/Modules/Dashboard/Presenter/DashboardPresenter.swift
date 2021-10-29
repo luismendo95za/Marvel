@@ -15,7 +15,7 @@ protocol DashboardPresenterProtocol: class {
 class DashboardPresenter {
     
     var ui : DashboardViewControllerProtocol!
-    var result: [Result] = []
+    var result: [CharacterModel] = []
     var service: DashboardService?
     
     init() {

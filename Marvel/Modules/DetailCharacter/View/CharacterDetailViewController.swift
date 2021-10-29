@@ -9,17 +9,17 @@ import UIKit
 
 
 protocol CharacterDetailViewProtocol: class {
-    var character: Result? {get set}
+    var character: CharacterModel? {get set}
     var context: CharacterDetailViewController? {get set}
-    func reloadView(character: Result)
+    func reloadView(character: CharacterModel)
 }
 
 class CharacterDetailViewController: UIViewController {
 
     let presenter: CharacterDetailPresenter! = CharacterDetailPresenter()
-    internal var character: Result? = nil
+    internal var character: CharacterModel? = nil
     var characterId: Int = 0
-    var listComicsCharacter: [AnyObject] = []
+    var listComicsCharacter: [ItemModel] = []
     var context: CharacterDetailViewController?
     
     @IBOutlet private weak var characterImageView: UIImageView!
@@ -54,12 +54,12 @@ class CharacterDetailViewController: UIViewController {
 
 extension CharacterDetailViewController: CharacterDetailViewProtocol {
 
-    func reloadView(character: Result) {
+    func reloadView(character: CharacterModel) {
         self.title = character.name
         self.labelDescriptionInform.text = "Descripción:" 
         self.descriptionLabel.text = character.descriptionField != "" ? character.descriptionField : "Sin descripción"
-        listComicsCharacter = character.comics.items
-        let urlImage = URL(string: character.thumbnail.absolutePath ?? "")
+        listComicsCharacter = character.comics?.items ?? []
+        let urlImage = URL(string: character.image?.getPathImage() ?? "")
         characterImageView.kf.setImage(with: urlImage)
         self.collectionView.reloadData()
     }
@@ -74,7 +74,7 @@ extension CharacterDetailViewController: UICollectionViewDelegateFlowLayout, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCharacterCollectionViewCell.reuseId, for: indexPath) as! DetailCharacterCollectionViewCell
             
-        cell.configure(comicName: listComicsCharacter[indexPath.row]["name"] as? String ?? "")
+        cell.configure(item: listComicsCharacter[indexPath.row])
         return cell
     }
     

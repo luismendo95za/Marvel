@@ -42,9 +42,9 @@ class CharacterTableViewCell: UITableViewCell {
         }
     }
 
-    func configure(character: Result) {
-        self.nameCharacterLabel.text = character.name
-        let imgURL: URL? = URL(string: character.thumbnail.absolutePath ?? "")
+    func configure(character: CharacterModel) {
+        self.nameCharacterLabel.text = character.name?.uppercased()
+        let imgURL: URL? = URL(string: character.image?.getPathImage() ?? "")
         self.characterImageView.kf.setImage(with: imgURL)
     }
     

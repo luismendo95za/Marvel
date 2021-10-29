@@ -16,7 +16,7 @@ final class DashboardService {
     ///   - offset: Skip the specified number of resources in the result set.
     /// - Returns: lists of comic characters
     func getCharactersList(limit: Int? = 20, offset: Int? = 0, name: String? = nil,
-                           completion: @escaping([Result])-> Void, failure: @escaping(AFError)-> Void) {
+                           completion: @escaping([CharacterModel])-> Void, failure: @escaping(AFError)-> Void) {
         
         var params = KeyParameter.params        
         params["limit"] = limit
@@ -28,10 +28,12 @@ final class DashboardService {
         request.responseJSON { (response) in
             
             switch response.result {
-            case .success(let value):
-                if let JSON = value as? [String : Any] {
-                    let listModel = Datum(json: JSON["data"] as? [String : Any] ?? [:])
-                    completion(listModel?.results ?? [])
+            case .success(_):
+                if let json = (response.data) {
+                    let decoder = JSONDecoder()
+                    if let listModel = try? decoder.decode(RootModel.self, from: json) {
+                        completion(listModel.data?.results ?? [])
+                    }
                 }
             case .failure(let error):
                 failure(error)                

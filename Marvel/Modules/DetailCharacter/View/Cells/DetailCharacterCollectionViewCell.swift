@@ -17,7 +17,7 @@ class DetailCharacterCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
-    func configure(comicName: String) {
-        labelName.text = comicName
+    func configure(item: ItemModel) {
+        labelName.text = item.name
     }
 }

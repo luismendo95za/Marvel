@@ -9,8 +9,8 @@ import UIKit
 import Foundation
 
 protocol DashboardViewControllerProtocol: class {
-    var filteredData: [Result]  {get set}
-    var listCharacters: [Result]  {get set}
+    var filteredData: [CharacterModel]  {get set}
+    var listCharacters: [CharacterModel]  {get set}
     var context: DashboardViewController? {get set}
     var refreshControl: UIRefreshControl {get set}
     func reloadTable()
@@ -28,8 +28,8 @@ class DashboardViewController: UIViewController {
     var context: DashboardViewController?
     let presenter: DashboardPresenter! = DashboardPresenter()
     var router: DashboardRouter? = nil
-    internal var listCharacters: [Result] = []
-    internal var filteredData: [Result] = []
+    internal var listCharacters: [CharacterModel] = []
+    internal var filteredData: [CharacterModel] = []
     private var isDataLoading = false
     private var page = 0
     private var limit = Constants.limitPage
@@ -64,6 +64,7 @@ class DashboardViewController: UIViewController {
     }
     
     fileprivate func configureSearchBar() {
+        self.searchBar.placeholder = "Buscar un personaje"
         self.searchBar.delegate = self
     }
     
@@ -76,8 +77,9 @@ class DashboardViewController: UIViewController {
     @objc func refresh(_ sender: AnyObject) {
         self.presenter.getListCharacter()
         self.page = 0
-        self.limit = 20
+        self.limit = Constants.limitPage
         self.offset = 0
+        self.searchBar.text = ""
     }
 }
 

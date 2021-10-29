@@ -11,7 +11,7 @@ import Alamofire
 final class CharacterService {
     
     
-    func getDetailCharacter(id: Int, completion: @escaping(Result)-> Void, failure: @escaping(AFError)-> Void) {
+    func getDetailCharacter(id: Int, completion: @escaping(CharacterModel)-> Void, failure: @escaping(AFError)-> Void) {
         
         let params = KeyParameter.params
         
@@ -20,13 +20,19 @@ final class CharacterService {
         request.responseJSON { detailCharacterResponse in
             
             switch detailCharacterResponse.result {
-            case .success(let value):
-                if let JSON = value as? [String : Any] {
-                    let data = Datum(json: JSON["data"] as? [String : Any] ?? [:])
-                    completion(data?.results.first ?? Result())
+            case .success(_):
+                if let json = (detailCharacterResponse.data) {
+                    let decoder = JSONDecoder()
+                    if let dataResponse = try? decoder.decode(RootModel.self, from: json) {
+                        if let result = dataResponse.data?.results?.first {
+                            completion(result)
+                        } else {
+                            failure(AFError.multipartEncodingFailed(reason: .bodyPartFileSizeNotAvailable(at: URL(fileURLWithPath: ""))))
+                        }
+                    }
                 }
             case .failure(let error):
-                failure(error)    
+                failure(error)
             }
         }
     }
