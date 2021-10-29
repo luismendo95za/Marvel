@@ -4,7 +4,7 @@
 //
 //  Created by Luis Alberto Mendoza Reyna on 29/5/21.
 //
-
+import CryptoSwift
 import Foundation
 
 enum Constants {
@@ -18,12 +18,12 @@ enum Endpoints{
 }
 
 struct KeyParameter {
-    static let ts: String = "0"
-    static let apiKey: String? = infoForKey("API KEY") ?? ""
-    static let hash: String = "2529c87b340fd4e599d27ec7290cc3ce"
-    
+    static let ts = "0"
+    static let apiKey = infoForKey("API KEY") ?? ""
+    static let privateKey = infoForKey("PRIVATE KEY") ?? ""
+    static let hash: String = (KeyParameter.ts + KeyParameter.privateKey + apiKey).md5()
     static let params: [String : Any] = ["ts" : KeyParameter.ts,
-                                         "apikey": KeyParameter.apiKey ?? "",
+                                         "apikey": KeyParameter.apiKey ,
                                          "hash": KeyParameter.hash]
 }
 

@@ -8,6 +8,7 @@ target 'Marvel' do
    pod 'Alamofire'
    pod 'lottie-ios'
    pod 'Kingfisher', '~> 7.0'
+   pod 'CryptoSwift'
 
   target 'MarvelTests' do
     inherit! :search_paths
