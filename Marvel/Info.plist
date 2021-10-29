@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>API KEY</key>
-	<string>$(API_KEY)</string>
+	<string>$(PUBLIC_KEY)</string>
 	<key>PRIVATE KEY</key>
 	<string>$(PRIVATE_KEY)</string>
 	<key>NSAppTransportSecurity</key>
