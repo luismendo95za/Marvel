@@ -28,15 +28,15 @@ It is a dependency manager for Xcode, as its page indicates, and in simple words
 <img width="618" alt="Screenshot 2021-10-27 at 14 28 22" src="https://user-images.githubusercontent.com/37546472/139065451-7d0a4fbe-eabf-469b-9df1-dd0253b727ba.png">
 
 Alamofire
+
 Alamofire is a specific library for Swift, which allows us to make requests to a web server fulfilling and exploiting all the capabilities of HTTP.
 
 Lottie 
+
 Lottie is a library capable of playing animations in real time and natively on web, android and iOS.
 
-Gloss
-Gloss enables simple transformation from JSON to objects - and from objects back to JSON.
-
 Kingfisher 
+
 external library used to download images from a server.
 
 Unit Testing
