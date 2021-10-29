@@ -25,7 +25,8 @@ COCOAPODS
 
 It is a dependency manager for Xcode, as its page indicates, and in simple words it allows us to add frameworks to our projects, keep them updated using a single command.
 
-<img width="618" alt="Screenshot 2021-10-27 at 14 28 22" src="https://user-images.githubusercontent.com/37546472/139065451-7d0a4fbe-eabf-469b-9df1-dd0253b727ba.png">
+<img width="585" alt="Screenshot 2021-10-29 at 14 31 49" src="https://user-images.githubusercontent.com/37546472/139434979-a3607071-961f-4bfc-b8c9-6220d503d52d.png">
+
 
 Alamofire
 
@@ -37,17 +38,20 @@ Lottie is a library capable of playing animations in real time and natively on w
 
 Kingfisher 
 
-external library used to download images from a server.
+External library used to download images from a server.
+
+CryptoSwift
+
+Is an external library of encryption and decryption, hashing or authentication of messages.
 
 Unit Testing
 the project has a few simple unit tests ready to run all of them testing the code.
 
 HOW RUN the project? 
 
-first you have to go to the config file that is in the root of the project and then insert your api key without quotes and voila, you can run the project
+first you have to go to the config file that is in the root of the project and then insert your public and private key without quotes and voila, you can run the project
 
-<img width="572" alt="Screenshot 2021-10-27 at 14 24 04" src="https://user-images.githubusercontent.com/37546472/139065025-6e6f8252-65ce-4e2a-91b7-390bbefb9315.png">
-
+<img width="585" alt="Screenshot 2021-10-29 at 14 27 01" src="https://user-images.githubusercontent.com/37546472/139435031-2964bbc7-8409-48d8-9b65-3fc0db6e306e.png">
 
 Meta
 
